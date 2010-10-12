@@ -1,8 +1,6 @@
 var sakai = sakai || {};
 
-sakai.news = function(){
-    var newsEditID = "";
-    var allNews = [];
+sakai.news = function(){    
     var news = "news";
     var newsClass = ".news";
     var newsID = "#news";
@@ -46,12 +44,14 @@ sakai.news = function(){
     var newsDetailOptionDelete = "#news_detail_option_delete";
     
     var messagesForTypeCat;
-    var messagesPerPage = 4;// default 13 messages per page
+    var messagesPerPage = 4;// default 4 messages per page
     var currentPage = 1;
     var mceNum = 0;
     var newsall = {};
     var newsID = "";
     var editCounter = 1;
+    var newsEditID = "";
+    var allNews = [];
 
     
     ///////////////////////////
@@ -78,7 +78,7 @@ sakai.news = function(){
         $("#createnews_pic_empty").hide();
         $("#createnews_pic_format").hide();
     };
-    
+/*    
     var showProcess = function(show){
         if(show){
             $(createnewsAddSaveNew).hide();
@@ -92,7 +92,7 @@ sakai.news = function(){
             $(createnewsAddSaveCancel).show();
         }
     };
-    
+   
     var showSuccess = function(show){
         if(show){
             $(createnewsAddSuccess).show();
@@ -100,7 +100,7 @@ sakai.news = function(){
             $(createnewsAddSuccess).hide();
         }
     };
-    
+*/     
     var showAlert = function(id){
         hideAllTips();
         $("#" + id).show();
@@ -242,8 +242,8 @@ sakai.news = function(){
             success: function(data){
                 if(data.success === true)
                 {
-                    showProcess(false);
-                    showSuccess(true);
+//                    showProcess(false);
+//                    showSuccess(true);
 
                     loadnewsall();
                     $(createNewsContainer).jqmHide();
@@ -266,9 +266,9 @@ sakai.news = function(){
             },
             type: "POST",
             success: function(data){
-                showProcess(false);
+//                showProcess(false);
                 if(data.success === true){
-                   showSuccess(true);
+//                   showSuccess(true);
                    loadnewsall();
                    $(createNewsContainer).jqmHide();
                 }
@@ -474,7 +474,7 @@ sakai.news = function(){
         }else if(newContent === ""){
             showAlert("content_empty");
         }else{
-            showProcess(true);
+//            showProcess(true);
             saveNewNews(newTitle,newContent,pictureURI);
         }
     });
