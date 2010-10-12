@@ -130,9 +130,15 @@ sakai.listPeople.render = function(tuid, iConfig, url, id) {
     $.ajax({
         url: url,
         success: function(data){
+
             if (typeof(data) === 'string') {
                 data = $.parseJSON(data);
 
+                var json_data = {
+                    "results" : data,
+                    "total" : itemCount
+                };
+            } else if (!data.results) {
                 var json_data = {
                     "results" : data,
                     "total" : itemCount
@@ -324,6 +330,9 @@ sakai.listPeople.addToList = function(tuid, object) {
                     sakai.data.listpeople[tuid].userList[resultObject.userid]["displayName"] = resultObject["firstName"] + ' ' + resultObject["lastName"];
                 } else {
                     sakai.data.listpeople[tuid].userList[resultObject.userid]["displayName"] = resultObject.userid;
+                }
+                if (resultObject.picture && typeof(resultObject.picture) === 'string') {
+                    sakai.data.listpeople[tuid].userList[resultObject.userid]["picture"] = $.parseJSON(resultObject.picture);
                 }
                 if (!sakai.data.listpeople[tuid].userList[resultObject.userid]["subNameInfo"]) {
                     sakai.data.listpeople[tuid].userList[resultObject.userid]["subNameInfo"] = resultObject[iSubNameInfoUser]

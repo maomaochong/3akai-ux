@@ -62,7 +62,7 @@
 "EG_PHILOSOPHY_COMPUTER_SCIENCE": "e.g. Philosophy, Computer Science,",
 "EMAIL_ADDRESS": "Email Address",
 "ENTER_A_SEARCH_TERM": "Enter a search term",
-"ENTER_A_SEARCHTERM": "Enter a searchterm",
+"ENTER_A_SEARCHTERM": "Enter a search term",
 "ENTIRE_COMMUNITY": "Entire Community",
 "ENTIRE_SAKAI_NETWORK": "Entire Sakai Network",
 "FAILED_TO_MARK_THIS_MESSAGE_AS_READ": "Failed to mark this message as read",
@@ -209,4 +209,15 @@
 "YOU_FILLED_IN_AN_INCORRECT_PASSWORD": "You filled in an incorrect password",
 "YOULL_FIND_PAGES_AND_SITES_OF_YOUR_INTEREST_AND_PEOPLE_WITH_WHO_YOU_CAN_CONNECT": "You'll find pages and sites of your interest, and people with who you can connect",
 "YOUR_MESSAGE_HAS_BEEN_SENT": "Your message has been sent"
+
+"NEWS_SAKAINEWS": "Sakai News",
+"NEWS_NEWS": "News",
+"NEWS_LIST_AUTHOR": "Author",
+"NEWS_LIST_TITLE": "Title",
+"NEWS_LIST_DATE": "Date",
+"NEWS_ADD_A_NEWS": "Add a news",
+"NEWS_BACK_TO_LIST": "Back to list",
+"NEWS_EDIT": "Edit",
+"NEWS_DELETE": "Delete"
+
 }

@@ -32,9 +32,10 @@ sakai.search = function() {
 
     // Search URL mapping
     var searchURLmap = {
+        allgroups : sakai.config.URL.SEARCH_GROUPS,
         visiblegroups : sakai.config.URL.SEARCH_GROUPS,
-        managergroups : sakai.config.URL.SEARCH_GROUPS,
-        membergroups : sakai.config.URL.SEARCH_GROUPS
+        managergroups : sakai.config.URL.GROUPS_MANAGER,
+        membergroups : sakai.config.URL.GROUPS_MEMBER
     };
 
     // CSS IDs
@@ -77,6 +78,12 @@ sakai.search = function() {
             container : search + '_results_container',
             header : search + '_results_header',
             template : 'search_results_template'
+        },
+        facetedConfig : {
+            title : "Refine your search",
+            value : "Groups",
+            categories : ["All Groups", "Groups I can see", "Groups I manage", "Groups I'm a member of"],
+            searchurls : [searchURLmap.allgroups, searchURLmap.visiblegroups, searchURLmap.managergroups, searchURLmap.membergroups]
         }
     };
 
@@ -144,6 +151,15 @@ sakai.search = function() {
         var finaljson = {};
         finaljson.items = [];
             if (success) {
+                // if results are returned in a different format
+                if (!results.results){
+                    var resultCount = 0;
+                    $.each(results, function(index, resultObject) {
+                        resultCount++;
+                    });
+                    var resultsTemp = {results : results, total : resultCount}; 
+                    results = resultsTemp;
+                }
 
             // Adjust display global total
             // If number is higher than a configurable threshold show a word instead conveying ther uncountable volume -- TO DO: i18n this
@@ -208,37 +224,6 @@ sakai.search = function() {
         // Render the results.
         $(searchConfig.results.container).html($.TemplateRenderer(searchConfig.results.template, finaljson));
         $(".search_results_container").show();
-
-        var facetedGroupConfig = {
-            title: "Refine your search",
-            value: "Groups",
-            categories: ["Groups I can see", "Groups I manage", "Groups I'm a member of"],
-            searchurls: [searchURLmap.visiblegroups, searchURLmap.managergroups, searchURLmap.membergroups]
-        };
-
-        // Render the faceted.
-        $("#search_faceted_container").html($.TemplateRenderer("#search_faceted_template", facetedGroupConfig));
-        $("#search_faceted_container").show();
-
-        // bind faceted elements
-        // loop through each faceted category and bind the link
-        $.each(facetedGroupConfig.categories, function(index, category) {
-            $("#" + category.split(' ').join('')).bind("click", function() {
-                var searchquery = $(searchConfig.global.text).val();
-                var searchwhere = mainSearch.getSearchWhereSites();
-                sakai._search.doSearch(1, searchquery, searchwhere, facetedGroupConfig.searchurls[index]);
-            });
-        });
-        // bind faceted list all
-        $("#search_faceted_listall").bind("click", function() {
-            $(".search_faceted_list_expanded").show();
-            $(".search_faceted_back").show();
-        });
-        // bind faceted back link
-        $(".search_faceted_back_link").bind("click", function() {
-            $(".search_faceted_list_expanded").hide();
-            $(".search_faceted_back").hide();
-        });
     };
 
 
@@ -262,7 +247,13 @@ sakai.search = function() {
      *  mysites = the site the user is registered on
      *  /a-site-of-mine = specific site from the user
      */
-    sakai._search.doSearch = function(page, searchquery, searchwhere, facetedurl) {
+    sakai._search.doSearch = function(page, searchquery, searchwhere) {
+
+        facetedurl = mainSearch.getFacetedUrl();
+
+        if (isNaN(page)){
+            page = 1;
+        }
 
         currentpage = parseInt(page,  10);
 
@@ -295,8 +286,14 @@ sakai.search = function() {
             var searchURL = sakai.config.URL.SEARCH_GROUPS + "?page=" + (currentpage - 1) + "&items=" + resultsToDisplay + "&q=" + urlsearchterm + "&sites=" + searchWhere;
 
             // Check if we want to search using a faceted link
-            if (facetedurl)
+            if (facetedurl) {
+                // only simple search terms supported for these URLs - KERN-1020
+                if (facetedurl === sakai.config.URL.GROUPS_MANAGER || facetedurl === sakai.config.URL.GROUPS_MEMBER) {
+                    urlsearchterm = searchterm
+                }
+                
                 searchURL = facetedurl + "?page=" + (currentpage - 1) + "&items=" + resultsToDisplay + "&q=" + urlsearchterm + "&sites=" + searchWhere;
+            }
 
             $.ajax({
                 url: searchURL,
@@ -338,6 +335,9 @@ sakai.search = function() {
             mainSearch.getMySites();
             // Add the bindings
             mainSearch.addEventListeners();
+
+            // display faceted panel
+            mainSearch.addFacetedPanel();
         }
     };
 

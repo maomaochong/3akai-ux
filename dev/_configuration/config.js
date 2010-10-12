@@ -40,7 +40,7 @@ sakai.config = {
         SEARCH_GENERAL_URL: "/dev/search.html",
         SEARCH_PEOPLE_URL: "search_people.html",
         SEARCH_SITES_URL: "search_sites.html",
-        TINY_MCE_CONTENT_CSS: "/dev/_css/FSS/fss-base.css,/dev/_css/sakai/sakai.core.2.css,/dev/_css/sakai/sakai.css,/dev/_css/sakai/sakai.editor.css",
+        TINY_MCE_CONTENT_CSS: "/dev/_css/FSS/fss-base.css,/dev/_css/sakai/sakai.core.2.css,/dev/_css/sakai/sakai.css,/dev/_css/sakai/sakai.editor.css,/dev/_css/sakai/sakai.show.css",
         USER_DEFAULT_ICON_URL: "/dev/_images/person_icon.jpg",
         USER_DEFAULT_UPLOAD_FOLDER: "/private/uploads",
 
@@ -62,6 +62,8 @@ sakai.config = {
         FRIEND_ACCEPTED_SERVICE: "/var/contacts/accepted.json",
         GOOGLE_CHARTS_API: "http://chart.apis.google.com/chart",
         GROUP_CREATE_SERVICE: "/system/userManager/group.create.json",
+        GROUPS_MANAGER: "/system/me/managedgroups.json",
+        GROUPS_MEMBER: "/system/me/groups.json",
         HEADER_SERVICE: "/var/proxy/header.json",
         IMAGE_SERVICE: "/var/image/cropit",
         LOGIN_SERVICE: "/system/sling/formlogin",
@@ -81,6 +83,7 @@ sakai.config = {
         SDATA_FETCH_URL: "/sites/__PLACEMENT__/__TUID__/__NAME__",
         SDATA_FETCH: "/",
         // --
+        SEARCH_ALL_FILES: "/var/search/pool/all.json",
         SEARCH_ALL_FILES_SERVICE: "/var/search/files/allfiles.json",
         SEARCH_CONTENT_COMPREHENSIVE_SERVICE: "/var/search/sitecontent.json",
         SEARCH_CONTENT_SERVICE: "/var/search/content.json",
@@ -88,6 +91,7 @@ sakai.config = {
         SEARCH_MY_CONTACTS: "/var/search/files/mycontacts.json",
         SEARCH_MY_FILES: "/var/search/files/myfiles.json",
         SEARCH_MY_SITES: "/var/search/files/mysites.json",
+        SEARCH_GROUP_MEMBERS: "/var/search/groupmembers.json",
         SEARCH_GROUPS: "/var/search/groups.json",
         SEARCH_PAGES: "/var/search/page.json",
         SEARCH_SITES: "/var/search/sites.json",
@@ -228,6 +232,12 @@ sakai.config = {
                         "required": false,
                         "display": true,
                         "type": "date"
+                    },
+                    "tags": {
+                        "label": "__MSG__TAGS__",
+                        "required": false,
+                        "display": true,
+                        "type": "textarea"
                     }
                 }
             },
@@ -273,13 +283,13 @@ sakai.config = {
                 "elements": {
                     "maintitle": {
                         "label": "__MSG__PROFILE_PUBLICATIONS_MAIN_TITLE__",
-                        "required": false,
+                        "required": true,
                         "display": true,
                         "example": "__MSG__PROFILE_PUBLICATIONS_MAIN_TITLE_EXAMPLE__"
                     },
                     "mainauthor": {
                         "label": "__MSG__PROFILE_PUBLICATIONS_MAIN_AUTHOR__",
-                        "required": false,
+                        "required": true,
                         "display": true
                     },
                     "coauthor": {
@@ -290,12 +300,12 @@ sakai.config = {
                     },
                     "publisher": {
                         "label": "__MSG__PROFILE_PUBLICATIONS_PUBLISHER__",
-                        "required": false,
+                        "required": true,
                         "display": true
                     },
                     "placeofpublication": {
                         "label": "__MSG__PROFILE_PUBLICATIONS_PLACE_OF_PUBLICATION__",
-                        "required": false,
+                        "required": true,
                         "display": true
                     },
                     "volumetitle": {
@@ -311,7 +321,7 @@ sakai.config = {
                     },
                     "year": {
                         "label": "__MSG__PROFILE_PUBLICATIONS_YEAR__",
-                        "required": false,
+                        "required": true,
                         "display": true
                     },
                     "number": {

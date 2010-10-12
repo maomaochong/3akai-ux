@@ -43,6 +43,8 @@ sakai.sitespages = function(tuid,showSettings){
     sakai.sitespages.minHeight = 400;
     sakai.sitespages.autosaveinterval = 17000;
 
+    var $rootel = $("#" + tuid);
+
     var $li_edit_page_divider = $("#li_edit_page_divider");
     var $li_edit_page = $("#li_edit_page");
 
@@ -82,23 +84,24 @@ sakai.sitespages = function(tuid,showSettings){
         config.pageEmbedProperty = pageEmbedProperty;
         config.dashboardEmbedProperty = dashboardEmbedProperty;
         sakai.sitespages.config = config;
+        sakai.api.Widgets.widgetLoader.insertWidgets("#"+tuid);
         loadControl();
     }
 
     var loadControl = function(){
-        if (config.editMode) {
-            showAdminElements();
-        }
         if (sakai.data.me.user.userid){
             sakai._isAnonymous = false;
         } else {
             sakai._isAnonymous = true;
         }
-        // Refresh site_info object
-        sakai.sitespages.refreshSiteInfo();
+        if (config.editMode) {
+            showAdminElements(sakai.sitespages.refreshSiteInfo);
+        } else {
+            sakai.sitespages.refreshSiteInfo();
+        }
     }
 
-    var showAdminElements = function(){
+    var showAdminElements = function(callback){
 
         // Show admin elements
         $li_edit_page_divider.show();
@@ -107,7 +110,11 @@ sakai.sitespages = function(tuid,showSettings){
         $print_page.addClass("print_page_admin")
 
         // Load admin part from a separate file
-        $.getScript(sakai.sitespages.siteAdminJS);
+        $.getScript(sakai.sitespages.siteAdminJS, function(e){
+            if ($.isFunction(callback)) {
+                callback();
+            }
+        });
 
     }
 

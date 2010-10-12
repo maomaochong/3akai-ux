@@ -89,8 +89,8 @@ sakai.search = function(){
                         var picture = $.parseJSON(person.picture);
                         finaljson.items[index].picture = "/~" + person["rep:userId"] + "/public/profile/" + picture.name;
                     }
-                    if (sakai.api.User.getDisplayName(finaljson.items[index]) !== "") {
-                        finaljson.items[index].name = sakai.api.User.getDisplayName(finaljson.items[index]);
+                    if (sakai.api.User.getDisplayName(person) !== "") {
+                        finaljson.items[index].name = sakai.api.User.getDisplayName(person);
                     }
                     else {
                         finaljson.items[index].name = finaljson.items[index].userid;
@@ -206,18 +206,6 @@ sakai.search = function(){
                     else {
                         finaljson.items[index].name = finaljson.items[index].userid;
                     }
-                    if (person.basic) {
-                        var basic = $.parseJSON(person.basic);
-                        if (basic.unirole) {
-                            finaljson.items[index].extra = basic.unirole;
-                        }
-                        else if (basic.unicollege) {
-                            finaljson.items[index].extra = basic.unicollege;
-                        }
-                        else if (basic.unidepartment) {
-                            finaljson.items[index].extra = basic.unidepartment;
-                        }
-                    }
                     if (finaljson.items[index].userid == sakai.data.me.user.userid){
                         finaljson.items[index].isMe = true;
                     }
@@ -310,18 +298,6 @@ sakai.search = function(){
                     }
                     else {
                         finaljson.items[index].name = finaljson.items[index].userid;
-                    }
-                    if (person.basic) {
-                        var basic = $.parseJSON(person.basic);
-                        if (basic.unirole) {
-                            finaljson.items[index].extra = basic.unirole;
-                        }
-                        else if (basic.unicollege) {
-                            finaljson.items[index].extra = basic.unicollege;
-                        }
-                        else if (basic.unidepartment) {
-                            finaljson.items[index].extra = basic.unidepartment;
-                        }
                     }
                     if (finaljson.items[index].userid == sakai.data.me.user.userid){
                         finaljson.items[index].isMe = true;

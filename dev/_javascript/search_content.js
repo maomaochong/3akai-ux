@@ -32,7 +32,7 @@ sakai.search = function() {
 
     // Search URL mapping
     var searchURLmap = {
-        allfiles : sakai.config.URL.SEARCH_ALL_FILES_SERVICE,
+        allfiles : sakai.config.URL.SEARCH_ALL_FILES,
         mybookmarks : sakai.config.URL.SEARCH_MY_BOOKMARKS,
         mycontacts : sakai.config.URL.SEARCH_MY_CONTACTS,
         myfiles : sakai.config.URL.SEARCH_MY_FILES,
@@ -43,9 +43,6 @@ sakai.search = function() {
 
     // CSS IDs
     var search = "#search";
-
-    var searchSiteSelect = $(search + "_site_select");
-    var searchSiteSelectTemplate = "search_site_select_template";
 
     var searchConfig = {
         search : "#search",
@@ -84,6 +81,12 @@ sakai.search = function() {
             container : search + '_results_container',
             header : search + '_results_header',
             template : 'search_results_template'
+        },
+        facetedConfig : {
+            title : "Refine your search",
+            value : "Content",
+            categories : ["All Files", "Files I manage", "Files I'm a Member of"],
+            searchurls : [searchURLmap.allfiles, searchURLmap.pooledcontentmanager, searchURLmap.pooledcontentviewer]
         }
     };
 
@@ -189,37 +192,6 @@ sakai.search = function() {
         // Render the results.
         $(searchConfig.results.container).html($.TemplateRenderer(searchConfig.results.template, finaljson));
         $(".search_results_container").show();
-
-        var facetedContentConfig = {
-            title: "Refine your search",
-            value: "Content",
-            categories: ["Content I manage", "My content", "Content I can see"],
-            searchurls: [searchURLmap.pooledcontentmanager, searchURLmap.mysites, searchURLmap.pooledcontentviewer]
-        };
-
-        // Render the faceted.
-        $("#search_faceted_container").html($.TemplateRenderer("#search_faceted_template", facetedContentConfig));
-        $("#search_faceted_container").show();
-
-        // bind faceted elements
-        // loop through each faceted category and bind the link
-        $.each(facetedContentConfig.categories, function(index, category) {
-            $("#" + category.split(' ').join('')).bind("click", function() {
-                var searchquery = $(searchConfig.global.text).val();
-                var searchwhere = mainSearch.getSearchWhereSites();
-                sakai._search.doSearch(1, searchquery, searchwhere, facetedContentConfig.searchurls[index]);
-            });
-        });
-        // bind faceted list all
-        $("#search_faceted_listall").bind("click", function() {
-            $(".search_faceted_list_expanded").show();
-            $(".search_faceted_back").show();
-        });
-        // bind faceted back link
-        $(".search_faceted_back_link").bind("click", function() {
-            $(".search_faceted_list_expanded").hide();
-            $(".search_faceted_back").hide();
-        });
     };
 
 
@@ -243,7 +215,9 @@ sakai.search = function() {
      *  mysites = the site the user is registered on
      *  /a-site-of-mine = specific site from the user
      */
-    sakai._search.doSearch = function(page, searchquery, searchwhere, facetedurl) {
+    sakai._search.doSearch = function(page, searchquery, searchwhere) {
+
+        facetedurl = mainSearch.getFacetedUrl();
 
         // Check if the searchquery is empty
         if(searchquery === ""){
@@ -251,9 +225,14 @@ sakai.search = function() {
             // If there is nothing in the search query, remove the html and hide some divs
             $(searchConfig.results.container).html();
             $(".search_results_container").hide();
+            $("#faceted_container").hide();
             $(searchConfig.results.header).hide();
             $(searchConfig.global.pagerClass).hide();
             return;
+        }
+
+        if (isNaN(page)){
+            page = 1;
         }
 
         currentpage = parseInt(page,  10);
@@ -303,7 +282,7 @@ sakai.search = function() {
             
             // Check if we want to search using a faceted link
             if (facetedurl)
-                url = facetedurl;
+                url = facetedurl.replace(".json", ".infinity.json");
 
             $.ajax({
                 url: url,
@@ -355,8 +334,6 @@ sakai.search = function() {
                     var sites = {
                         "sites" : data
                     };
-                    searchSiteSelect.html($.TemplateRenderer(searchSiteSelectTemplate, sites));
-
                     // Get my sites
                     mainSearch.getMySites();
                 }
@@ -364,7 +341,9 @@ sakai.search = function() {
         }
         // Add the bindings
         mainSearch.addEventListeners();
-        
+
+        // display faceted panel
+        mainSearch.addFacetedPanel();
     };
 
     var thisFunctionality = {

@@ -1,0 +1,20 @@
+{
+"name": "Createnews",
+"description": "Createnews widget\r\n",
+"WIDGET_TITLE": "Create a new news",
+"NOW_YOU_ARE_CREATING_A_SIMPLE_NEW": "Now you are creating a simple news.",
+"NOW_YOU_ARE_EDITTING_A_SIMPLE_NEW": "Now you are editing a simple news.",
+"CREATE_NEWS": "Create news",
+"CLOSE_DIALOG": "Close dialog",
+"PROCESSING": "Processing",
+"SUCCESS": "success!",
+"CREATE_NEWS_ADD_SAVE": "Save",
+"CREATE_NEWS_ADD_CANCEL": "cancel",
+"NEWS_TITLE": "Title",
+"NEWS_CONTENT": "Content",
+"UPLOAD_IMAGE":"Upload File",
+"TITLE_EMPTY":"Please enter your title!",
+"CONTENT_EMPTY":"Please enter your content!",
+"CHOOSE_IMAGE":"Please choose a picture!",
+"IMAGE_FORMAT":"The suffix of the picture should be gif/jpg/png"
+}

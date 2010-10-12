@@ -238,16 +238,16 @@ sakai.search = function() {
 
         if (foundSites.total > sitesToSearch) {
             $(searchConfig.sites.displayMore).show();
-            $(searchConfig.sites.displayMore).attr("href", "search_sites.html#1|" + searchterm);
+            $(searchConfig.sites.displayMore).attr("href", "search_groups.html#1|" + searchterm);
         }
 
         if (foundSites && foundSites.results) {
 
             finaljson.items = foundSites.results;
             
-            for (var site in finaljson.items){
-                if (finaljson.items.hasOwnProperty(site)) {
-                    finaljson.items[site].site.name = sakai.api.Security.escapeHTML(finaljson.items[site].site.name);
+            for (var group in finaljson.items){
+                if (finaljson.items.hasOwnProperty(group)) {
+                    finaljson.items[group]["sakai:group-title"] = sakai.api.Security.escapeHTML(finaljson.items[group]["sakai:group-title"]);
                 }
             }
 
@@ -256,8 +256,8 @@ sakai.search = function() {
 
                 //console.log(finaljson.items[i], finaljson.items[i]["jcr:path"], finaljson.items[i]["site"]["jcr:path"]);
 
-                var full_path = finaljson.items[i]["data"]["jcr:path"];
-                var site_path = finaljson.items[i]["site"]["jcr:path"];
+                var full_path = finaljson.items[i]["path"];
+                var site_path = finaljson.items[i]["sakai:group-id"];
                 var page_path = site_path;
                 if (finaljson.items[i]["excerpt"]) {
                     var stripped_excerpt = $(""+finaljson.items[i]["excerpt"] + "").text().replace(/<[^>]*>/g, "");
@@ -351,7 +351,7 @@ sakai.search = function() {
             // Set off the 3 AJAX requests
             // Content & Media Search
             $.ajax({
-                url: sakai.config.URL.SEARCH_ALL_FILES_SERVICE,
+                url: sakai.config.URL.SEARCH_ALL_FILES,
                 data: {
                     "q" : urlsearchterm,
                     "items" : cmToSearch
@@ -391,7 +391,7 @@ sakai.search = function() {
             // Sites search
             $.ajax({
                 cache: false,
-                url: sakai.config.URL.SEARCH_CONTENT_COMPREHENSIVE_SERVICE + "?page=0&items=5&q=" + urlsearchterm,
+                url: sakai.config.URL.SEARCH_GROUPS + "?page=0&items=5&q=" + urlsearchterm,
                 success: function(data) {
                     renderSites(data);
                 },

@@ -34,6 +34,7 @@ sakai._search = function(config, callback) {
     var myfriends = {};
     var nrOfCharactersAroundTerm = 300;
     var usernameLengthStrip = 40;
+    var mainFacetedUrl = "";
 
 
     /////////////////////////
@@ -126,6 +127,13 @@ sakai._search = function(config, callback) {
      */
     var getMyFriends = function() {
         return myfriends;
+    };
+
+    /**
+     * Getter for the facetedurl var
+     */
+    var getFacetedUrl = function() {
+        return mainFacetedUrl;
     };
 
     /**
@@ -385,17 +393,39 @@ sakai._search = function(config, callback) {
         if (splitted.length > 1) {
             //urlterm += splitted[0] + "~"
             for (var i = 0; i < splitted.length; i++) {
-                urlterm += splitted[i] + "* ";
+                urlterm += "*" + splitted[i] + "* ";
             }
         }
         else {
-            urlterm = term + "*";
+            urlterm = "*" + term + "*";
         }
         return urlterm;
     };
 
+    /**
+     * Adds the faceted panel to the page if a search is performed
+     */
+    var addFacetedPanel = function() {
+        $(window).bind("sakai.api.UI.faceted.ready", function(e){
+            sakai.api.UI.faceted.render(searchConfig.facetedConfig);
+            $(".faceted_category:first").addClass("faceted_category_selected");
+
+            // bind faceted search elements
+            // loop through each faceted category and bind the link to trigger a search
+            $.each(searchConfig.facetedConfig.categories, function(index, category) {
+                $("#" + category.replace(/[^a-zA-Z0-9]+/g,'')).bind("click", function() {
+                    var searchquery = $(searchConfig.global.text).val();
+                    var searchwhere = getSearchWhereSites();
+                    mainFacetedUrl = searchConfig.facetedConfig.searchurls[index];
+                    sakai._search.doSearch(1, searchquery, searchwhere);
+                });
+            });
+        });
+    };
+
     return {
         'getMySites': getMySites,
+        'getFacetedUrl': getFacetedUrl,
         'fetchMyFriends': fetchMyFriends,
         'getMyFriends': getMyFriends,
         'getSearchWhereUsers': getSearchWhereUsers,
@@ -406,7 +436,8 @@ sakai._search = function(config, callback) {
         'removeAddContactLinks': removeAddContactLinks,
         'prepSearchTermForURL': prepSearchTermForURL,
         'preparePeopleForRender': preparePeopleForRender,
-        'prepareCMforRendering': prepareCMforRendering
+        'prepareCMforRendering': prepareCMforRendering,
+        'addFacetedPanel': addFacetedPanel
 
     };
 };

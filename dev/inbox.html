@@ -18,7 +18,7 @@
         <!-- 3rd party CSS -->
         <link rel="stylesheet" type="text/css" href="_css/sakai/sakai.components.jq_pager.css" />
         <link rel="stylesheet" type="text/css" href="/dev/_lib/jquery/plugins/gritter/css/jquery.gritter.css" />
-        <link rel="stylesheet" type="text/css" href="/devwidgets/pickeruser/css/autoSuggest.css" />
+        <link rel="stylesheet" type="text/css" href="/dev/_css/lib/jquery.autoSuggest.css" />
 
         <!-- Sakai Config JS -->
         <script type="text/javascript" src="_configuration/widgets.js"></script>
@@ -39,7 +39,7 @@
         <!-- 3rd party JS -->
         <script type="text/javascript" src="/dev/_lib/sakai_util/trimpath.template.js"></script>
         <script type="text/javascript" src="/dev/_lib/sakai_util/querystring.js"></script>
-        <script type="text/javascript" src="/dev/_lib/jquery/plugins/jqmodal.js"></script>
+        <script type="text/javascript" src="/dev/_lib/jquery/plugins/jqmodal.sakai-edited.js"></script>
         <script type="text/javascript" src="/dev/_lib/jquery/plugins/jquery.cookie.js"></script>
         <script type="text/javascript" src="/dev/_lib/jquery/plugins/jquery.pager.js"></script>
         <script type="text/javascript" src="/dev/_lib/jquery/plugins/gritter/jquery.gritter.js"></script>
@@ -324,7 +324,7 @@
 
                             <!-- Compose Message -->
                             <div class="compose-message" id="inbox_message_compose" style="display:none;">
-                                <form class="compose-form" method="post" action="">
+                                <form class="compose-form">
                                     <div>
                                         <label for="inbox_message_compose_subject">__MSG__SUBJECT__</label><br />
                                         <input type="text" maxlength="255" class="compose-subject" id="inbox_message_compose_subject" />
@@ -334,7 +334,7 @@
                                         <textarea class="compose-body" id="inbox_message_compose_body" rows="0" cols="0"></textarea>
                                     </div>
 
-                                    <button type="submit" class="s3d-button s3d-button-primary" id="inbox_message_compose_send"><span class="s3d-button-inner">__MSG__SEND_MESSAGE__</span></button>
+                                    <button class="s3d-button s3d-button-primary" id="inbox_message_compose_send"><span class="s3d-button-inner">__MSG__SEND_MESSAGE__</span></button>
                                     <button type="button" class="s3d-button" id="inbox_message_compose_cancel"><span class="s3d-button-inner">__MSG__CANCEL__</span></button>
                                 </form>
                             </div>
