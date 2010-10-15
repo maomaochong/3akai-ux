@@ -43,6 +43,8 @@ sakai.news = function(){
     var newsDetailOptionEdit = "#news_detail_option_edit";
     var newsDetailOptionDelete = "#news_detail_option_delete";
     
+    var newsGeneralMessagesDeleted_1 = "#news_generalmessages_deleted_1";
+    
     var messagesForTypeCat;
     var messagesPerPage = 4;// default 4 messages per page
     var currentPage = 1;
@@ -57,6 +59,12 @@ sakai.news = function(){
     ///////////////////////////
     // Load and display news //
     ///////////////////////////
+    var showGeneralMessage = function(msg, isError) {
+        // Check whether to show an error type message or an information one
+        var type = isError ? sakai.api.Util.notification.type.ERROR : sakai.api.Util.notification.type.INFORMATION;
+        // Show the message to the user
+        sakai.api.Util.notification.show("", msg, type);
+    };
     
     var setID = function(id) { newsID = id; };
     
@@ -192,6 +200,10 @@ sakai.news = function(){
                     $(newsDetailContent).html($.TemplateRenderer(newsDetailContentTemplate, news));
                     $(newsDetailContent).show();
                 }
+                else{
+//                    alert("新闻不存在或已删除");
+                    showGeneralMessage($("#news_generalmessages_deleted_x").text(), false);
+                }
             },
             error: function(xhr, textStatus, thrownError) {
                 alert("loadNewsByID error");
@@ -295,7 +307,8 @@ sakai.news = function(){
             success: function(data) {
                 if(data.success === true)
                 {
-                    alert("ok");
+//                  alert("ok");
+                    showGeneralMessage($(newsGeneralMessagesDeleted_1).text(), false);
                     loadnewsall();
                     showContainer("list");
                 }else {
@@ -304,7 +317,8 @@ sakai.news = function(){
                     }else {
                         // showAlert("list_cannt_delete");
                     }
-                    alert("此新闻已被删除！");
+//                    alert("此新闻已被删除！");
+                    showGeneralMessage($("#news_generalmessages_deleted_x").text(), false);
                 }
             },
             error: function(xhr, textStatus, thrownError) {

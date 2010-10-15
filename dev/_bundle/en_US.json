@@ -208,8 +208,7 @@
 "WHAT_ARE_YOU_DOING_NOW": "What are you doing now?",
 "YOU_FILLED_IN_AN_INCORRECT_PASSWORD": "You filled in an incorrect password",
 "YOULL_FIND_PAGES_AND_SITES_OF_YOUR_INTEREST_AND_PEOPLE_WITH_WHO_YOU_CAN_CONNECT": "You'll find pages and sites of your interest, and people with who you can connect",
-"YOUR_MESSAGE_HAS_BEEN_SENT": "Your message has been sent"
-
+"YOUR_MESSAGE_HAS_BEEN_SENT": "Your message has been sent",
 "NEWS_SAKAINEWS": "Sakai News",
 "NEWS_NEWS": "News",
 "NEWS_LIST_AUTHOR": "Author",
@@ -218,6 +217,7 @@
 "NEWS_ADD_A_NEWS": "Add a news",
 "NEWS_BACK_TO_LIST": "Back to list",
 "NEWS_EDIT": "Edit",
-"NEWS_DELETE": "Delete"
-
+"NEWS_DELETE": "Delete",
+"THE_NEWS_HAS_BEEN_DELETED": "the news has been deleted",
+"THE_NEWS_HAS_BEEN_DELETED_OR_NONEXISTENT":"the news has been deleted or non-existent"
 }
