@@ -1,10 +1,10 @@
 /* Reset */
-.defaultSkin table, .defaultSkin tbody, .defaultSkin a, .defaultSkin img, .defaultSkin tr, .defaultSkin div, .defaultSkin td, .defaultSkin iframe, .defaultSkin span, .defaultSkin *, .defaultSkin .mceText {border:0; margin:0; padding:0; background:transparent; white-space:nowrap; text-decoration:none; font-weight:normal; cursor:default; color:#000; vertical-align:baseline; width:auto; border-collapse:separate; text-align:left}
+.defaultSkin table, .defaultSkin tbody, .defaultSkin a, .defaultSkin img, .defaultSkin tr, .defaultSkin div, .defaultSkin td, .defaultSkin iframe, .defaultSkin span, .defaultSkin *, .defaultSkin .mceText {border:0; margin:0; padding:0; background:#f0f0ee; white-space:nowrap; text-decoration:none; font-weight:normal; cursor:default; color:#000; vertical-align:baseline; width:auto; border-collapse:separate; text-align:left}
 .defaultSkin a:hover, .defaultSkin a:link, .defaultSkin a:visited, .defaultSkin a:active {text-decoration:none; font-weight:normal; cursor:default; color:#000}
 .defaultSkin table td {vertical-align:middle}
 
 /* Containers */
-.defaultSkin table {}
+.defaultSkin table {border:1px;}
 .defaultSkin iframe {display:block; background:#FFF}
 .defaultSkin .mceToolbar {height:26px}
 .defaultSkin .mceLeft {text-align:left}
@@ -16,9 +16,9 @@
 .defaultSkin .mceExternalClose {position:absolute; top:3px; right:3px; width:7px; height:7px; background:url(../../img/icons.gif) -820px 0}
 
 /* Layout */
-.defaultSkin table.mceLayout {border:0;}
-.defaultSkin table.mceLayout tr.mceFirst td {}
-.defaultSkin table.mceLayout tr.mceLast td {}
+.defaultSkin table.mceLayout {}
+.defaultSkin table.mceLayout tr.mceFirst td {border:1px solid #cccccc; }
+.defaultSkin table.mceLayout tr.mceLast td {border-left:1px solid #cccccc; border-right:1px solid #cccccc;}
 .defaultSkin table.mceToolbar, .defaultSkin tr.mceFirst .mceToolbar tr td, .defaultSkin tr.mceLast .mceToolbar tr td {border:0; margin:0; padding:0;}
 .defaultSkin td.mceToolbar {padding-top:1px; vertical-align:top}
 .defaultSkin .mceIframeContainer {}

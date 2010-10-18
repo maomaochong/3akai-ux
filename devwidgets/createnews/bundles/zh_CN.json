@@ -1,0 +1,20 @@
+{
+"name": "Createnews",
+"description": "Createnews widget\r\n",
+"WIDGET_TITLE": "编辑新闻",
+"NOW_YOU_ARE_CREATING_A_SIMPLE_NEW": "在此对话框中发布新闻",
+"NOW_YOU_ARE_EDITTING_A_SIMPLE_NEW": "在此对话框中修改新闻",
+"CREATE_NEWS": "编辑新闻",
+"CLOSE_DIALOG": "Close dialog",
+"PROCESSING": "处理中",
+"SUCCESS": "成功!",
+"CREATE_NEWS_ADD_SAVE": "保存",
+"CREATE_NEWS_ADD_CANCEL": "取消",
+"NEWS_TITLE": "标题",
+"NEWS_CONTENT": "内容",
+"UPLOAD_IMAGE":"上传图片",
+"TITLE_EMPTY":"标题不能为空",
+"CONTENT_EMPTY":"内容不能为空",
+"CHOOSE_IMAGE":"请选择一张图片",
+"IMAGE_FORMAT":"上传文件格式不对，请上传gif/jpg/png格式的图片"
+}
