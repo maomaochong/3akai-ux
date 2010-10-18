@@ -206,5 +206,6 @@
 "NEWS_EDIT": "Edit",
 "NEWS_DELETE": "Delete",
 "NEWS_NO_NEWS_FOUND": "No news found",
-"NEWS_NO_NEWS_ERROR": "The news does not exist or has been deleted"
+"NEWS_NO_NEWS_ERROR": "The news does not exist or has been deleted",
+"THE_NEWS_HAS_BEEN_DELETED":"The news has been deleted"
 }

@@ -141,8 +141,8 @@
     color: #666; 
     text-align: left; 
     font-size: 1em; 
-    border-bottom: 1px solid #d5dbdf; 
-    border-left: 1px solid #d5dbdf; 
+    border-bottom: 1px solid #d5dbdf;     
+/*    border-left: 1px solid #d5dbdf; */
     padding: 0.5em;
 }
 

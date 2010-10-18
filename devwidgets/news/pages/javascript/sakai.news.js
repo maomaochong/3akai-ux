@@ -70,6 +70,14 @@ sakai.news = function(){
       }
     };
     
+    var showGeneralMessage = function(msg, isError) {
+        // Check whether to show an error type message or an information one
+        var type = isError ? sakai.api.Util.notification.type.ERROR : sakai.api.Util.notification.type.INFORMATION;
+        // Show the message to the user
+        sakai.api.Util.notification.show("", msg, type);
+
+    };
+    
     var hideAllTips = function(){
         $("#createnews_add_process").hide();
         $("#createnews_add_success").hide();
@@ -303,7 +311,8 @@ sakai.news = function(){
             success: function(data) {
                 if(data.success === true)
                 {
-                    alert("ok");
+//                    alert("ok");
+                    showGeneralMessage($("#news_generalmessages_deleted_1").text(), false);
                     loadnewsall();
                     showContainer("list");
                 }else {
@@ -312,7 +321,8 @@ sakai.news = function(){
                     }else {
                         // showAlert("list_cannt_delete");
                     }
-                    alert("此新闻已被删除！");
+//                    alert("此新闻已被删除！");
+                    showGeneralMessage($("#news_generalmessages_deleted_1").text(), false);  
                 }
             },
             error: function(xhr, textStatus, thrownError) {
