@@ -93,4 +93,4 @@ sakai.news = function(tuid, showSettings){
     init();
 };
 
-sakai.api.Widgets.widgetLoader.informOnLoad("news");
+sakai.api.Widgets.widgetLoader.informOnLoad("notice");

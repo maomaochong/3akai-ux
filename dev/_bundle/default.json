@@ -661,7 +661,7 @@
 "YOUR_PROFILE_INFORMATION_HAS_BEEN_UPDATED": "Your profile information has been updated",
 "NEWS_SAKAINEWS": "Sakai News",
 "NEWS_NEWS": "News",
-"NEWS_LIST_AUTHOR": "Author",
+"NOTICE_LIST_AUTHOR": "Author",
 "NEWS_LIST_TITLE": "Title",
 "NEWS_LIST_DATE": "Date",
 "NEWS_ADD_A_NEWS": "Add a news",
@@ -669,5 +669,7 @@
 "NEWS_EDIT": "Edit",
 "NEWS_DELETE": "Delete",
 "NEWS_NO_NEWS_FOUND": "No news found",
-"NEWS_NO_NEWS_ERROR": "The news does not exist or has been deleted"
+"NEWS_NO_NEWS_ERROR": "The news does not exist or has been deleted",
+"NOTICE_SAKAINOTICE": "Sakai NoNOTICE",
+"NOTICE_NOTICE": "notice"
 }

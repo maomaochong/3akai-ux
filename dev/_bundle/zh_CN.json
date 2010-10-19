@@ -464,5 +464,7 @@
 "NEWS_EDIT": "编辑",
 "NEWS_DELETE": "删除",
 "NEWS_NO_NEWS_FOUND": "没有任何新闻",
-"NEWS_NO_NEWS_ERROR": "新闻不存在或已被删除"
+"NEWS_NO_NEWS_ERROR": "新闻不存在或已被删除",
+"NOTICE_SAKAINOTICE": "Sakai 通知",
+"NOTICE_NOTICE": "通知"
 }
