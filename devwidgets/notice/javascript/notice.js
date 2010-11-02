@@ -11,7 +11,7 @@
  * @param {String} tuid Unique id of the widget
  * @param {Boolean} showSettings Show the settings of the widget or not
  */
-sakai.news = function(tuid, showSettings){
+sakai.notice = function(tuid, showSettings){
     var $newsList = $("#news_list");
     var $newTitle = $(".news_title");
     var $newsListError = $("#news_list_error");
@@ -50,14 +50,14 @@ sakai.news = function(tuid, showSettings){
     var loadData = function(){
         $.ajax({
 //          url: "/devwidgets/news/data/news.json",
-            url: "/system/news",
+            url: "/system/inform",
             data:{
               "action":"indexList"
             },
             type: "GET",
             success: function(data){
               if(data.success){
-                if(data.newsList.length === 0){
+                if(data.informList.length === 0){
                   $newsListEmpty.show();
                 }else{
                   $newsList.html($.TemplateRenderer($newsListTemplate, data));

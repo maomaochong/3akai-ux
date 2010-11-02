@@ -83,9 +83,9 @@
                 <div class="decor"></div>
                 
                 <!-- CONTAINER FOR THE CREATENEWS CONTAINER -->
-                <div id="createnewscontainer" style="display:none;">
+                <div id="createnoticecontainer" style="display:none;">
                     <!-- We need this container to show the pop-up where you can add a news -->
-                    <div id="widget_createnews" class="widget_inline">
+                    <div id="widget_createnotice" class="widget_inline">
                     </div>
                 </div>
 
@@ -119,7 +119,7 @@
                             <div class="bottom_decor">
                               <div class="fl-force-right sender-options">
                                 <div class="bottom_operation">
-                                    <a href="javascript:;" id="createnews_link" class="have_right_to_show">__MSG__NEWS_ADD_A_NEWS__</a>
+                                    <a href="javascript:;" id="createnews_link" class="have_right_to_show">__MSG__NOTICE_ADD_A_NOTICE__</a>
                                 </div>
                               </div>
                             </div>
@@ -139,7 +139,7 @@
                                     </tr>
                                 </thead>
                                 <tbody id="body-template">
-                                  {for m in newsList}
+                                  {for m in informList}
                                       <tr class="news_tr">
                                           <td>
                                               <span class="news_news_message_from">${m.author}</span>
@@ -265,13 +265,13 @@
         <div id="news_generalmessages_error_general" style="display:none;"><b>__MSG__AN_ERROR_HAS_OCCURRED__.</b> __MSG__PLEASE_TRY_AGAIN_LATER__.</div>
         <span id="news_generalmessages_error_read_fail" style="display:none;">__MSG__FAILED_TO_MARK_THIS_MESSAGE_AS_READ__.</span>
         <span id="news_generalmessages_error_send_fail" style="display:none;">__MSG__UNABLE_TO_SEND_YOUR_MESSAGE__.</span>
-        <span id="news_generalmessages_deleted_1" style="display:none;">__MSG__THE_MESSAGE_HAS_BEEN_DELETED__.</span>
+        <span id="notice_generalmessages_deleted_1" style="display:none;">__MSG__THE_NOTICE_HAS_BEEN_DELETED__.</span>
         <span id="news_generalmessages_deleted_x" style="display:none;"> __MSG__MESSAGES_HAVE_BEEN_DELETED__.</span>
         <span id="news_generalmessages_deleted_failed" style="display:none;">__MSG__UNABLE_TO_DELETE_MESSAGES__.</span>
         <div id="news_generalmessages_nr_new_messages" style="display:none;"> <span class="news_bold news_filter_nrMessages">(__NR__)</span></div>
         <span id="news_generalmessages_notice" style="display:none;">__MSG__YOUR_MESSAGE_HAS_BEEN_SENT__.</span>
 
-        <script type="text/javascript" src="/devwidgets/notice/pages/javascript/sakai.news.js"></script>
+        <script type="text/javascript" src="/devwidgets/notice/pages/javascript/sakai.notice.js"></script>
 
     </body>
 </html>

@@ -12,9 +12,9 @@
     <!-- Template -->
     <div id="news_list_template"><!--
         <ul>
-            {for news in newsList}
-                <li {if news_index % 2} class="news_list_alterrow" {/if} >
-                    <a class="news_title" href="/devwidgets/news/pages/sakai.news.html?news=${news.id}" target="_blank">${news.title}</a>
+            {for inform in informList}
+                <li {if inform_index % 2} class="news_list_alterrow" {/if} >
+                    <a class="news_title" href="/devwidgets/notice/pages/sakai.notice.html?news=${inform.id}" target="_blank">${inform.title}</a>
                 </li>
             {/for}
         </ul>
@@ -24,7 +24,7 @@
         <div class="widget-options-inner">
             <ul>
                 <li>
-                    <a href="/devwidgets/notice/pages/sakai.news.html" target="_blank">__MSG__MORE__</a>
+                    <a href="/devwidgets/notice/pages/sakai.notice.html" target="_blank">__MSG__MORE__</a>
                 </li>
             </ul>
         </div>
@@ -36,4 +36,4 @@
 </div>
 
 <!-- JAVASCRIPT -->
-<script type="text/javascript" src="/devwidgets/notice/javascript/news.js"></script>
+<script type="text/javascript" src="/devwidgets/notice/javascript/notice.js"></script>

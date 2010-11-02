@@ -208,5 +208,7 @@
 "NEWS_NO_NEWS_FOUND": "No news found",
 "NEWS_NO_NEWS_ERROR": "The news does not exist or has been deleted",
 "NOTICE_SAKAINOTICE": "Sakai Notice",
-"NOTICE_NOTICE": "notice"
+"NOTICE_NOTICE": "notice",
+"NOTICE_ADD_A_NOTICE": "Add a notice",
+"THE_NOTICE_HAS_BEEN_DELETED": "The notice has been deleted"
 }
