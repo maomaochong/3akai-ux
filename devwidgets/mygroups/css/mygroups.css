@@ -25,6 +25,7 @@
 .mygroups_left_padding {padding-left: 15px;}
 
 /* Widget icon */
-.mygroups.fl-widget .fl-widget-titlebar .widget_title {background: url('/devwidgets/mygroups/images/mygroups_headericon.png') 17px 15px no-repeat;}
+//为了advanced皮肤的风格统一，去掉icon。在文件名后面加了"1"。
+.mygroups.fl-widget .fl-widget-titlebar .widget_title {background: url('/devwidgets/mygroups/images/mygroups_headericon1.png') 17px 15px no-repeat;}
 
 .mygroups_ellipsis_container {word-wrap:break-word;}

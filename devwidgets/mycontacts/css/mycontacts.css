@@ -32,4 +32,5 @@
 .mycontacts_widget #mycontacts_nocontacts {font-size:0.95em; padding-bottom: 10px; display: block;}
 
 /* Widget icon */
-.mycontacts.fl-widget .fl-widget-titlebar .widget_title {background: url('/devwidgets/mycontacts/images/contacts_icon.png') 17px 18px no-repeat;}
+//为了advanced皮肤的风格统一，去掉icon。在文件名后面加了"1"。
+.mycontacts.fl-widget .fl-widget-titlebar .widget_title {background: url('/devwidgets/mycontacts/images/contacts_icon1.png') 17px 18px no-repeat;}

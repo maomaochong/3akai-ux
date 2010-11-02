@@ -1,0 +1,65 @@
+.widget-content .fixed-container {background-color: #fff; padding-bottom: 20px;}
+
+/* dashboard背景样式 */
+#dashboard_container #widgetscontainer { background:url("/dev/_skins/advanced/_images/dashboard_bg.png"); }
+.requireUser { background:url("/dev/_skins/advanced/_images/bg.jpg"); }
+.header .fixed-container { background: #2b292a; }
+.header .fixed-container .decor { background-image: none; }
+
+/* widget框的样式 */
+.fl-widget .fl-widget-titlebar h2 {padding-left:3px}
+.fl-widget .fl-widget-titlebar {background: url(/dev/_skins/advanced/_images/block_tr.png) top right no-repeat; padding: 0 12px 0 0; width: auto;}
+.fl-widget .fl-widget-titlebar .widget-titlebar-inner {background: url(/dev/_skins/advanced/_images/block_tl.png) top left no-repeat; height: 41px}
+.fl-widget .fl-widget-titlebar .widget_title {background-image: none; color: #ffffff; font-size: 1.0em; float: left; padding-left: 20px; line-height: 41px}
+.hiddenwidget {border-bottom: 3px solid #3389a1;}
+.fl-widget .fl-widget-options {background: url(/dev/_skins/advanced/_images/block_br.png) top right no-repeat; margin: 0; padding: 0 8px 0 0; clear:both;}
+.fl-widget .fl-widget-options .widget-options-inner {background: url(/dev/_skins/advanced/_images/block_bl.png) top left no-repeat; width: auto; padding: 0 0 7px 14px}
+.fl-widget .fl-widget-options ul li {float: left; margin: 0; padding: 10px 6px 0 6px; color: #ffffff;}
+.fl-widget .fl-widget-options ul li a {color: #ffffff; font-size: .85em; font-weight: bold}
+.fl-widget .fl-widget-options-footer-left {background-image: none; height:16px;margin-top:-16px;}
+.fl-widget .fl-widget-options-footer-right {background-image: none; height:16px;margin-right:-8px;}
+.fl-widget .fl-widget-content {background: #121212; padding: 10px 0 10px 0; margin: 0; border: 0px; }
+
+/* "widget setting"菜单图标样式 */
+.fl-widget .fl-widget-titlebar .settings {background-image: url(/dev/_skins/advanced/_images/edit_icon_widget.png); position: relative; height: 18px; background-repeat: no-repeat; margin-top: 15px}
+#widget_settings_menu { background: #2b292a; }
+
+/* "Edit Page"按钮样式 */
+.s3d-button.s3d-button-inline {width:114px; height:27px;}
+.s3d-button.s3d-button-inline { background: url("/dev/_skins/advanced/_images/editpage_bg.png") no-repeat right top; }
+.s3d-button.s3d-button-inline:hover { background: url("/dev/_skins/advanced/_images/editpage_bg.png") no-repeat right -27px; }
+.s3d-button.s3d-button-inline.clicked { background: url("/dev/_skins/advanced/_images/editpage_bg.png") no-repeat right -27px; }
+.s3d-button.s3d-button-inline .s3d-button-inner .s3d-button-icon-left { background: none; }
+.s3d-button.s3d-button-inline .s3d-button-inner .s3d-button-icon-right { background: none; }
+.s3d-button.s3d-button-inline .s3d-button-inner { background: none; color: #d0cbcb; }
+.s3d-button.s3d-button-inline:hover .s3d-button-inner { background: none; }
+.s3d-button.s3d-button-inline.clicked .s3d-button-inner { background: none; }
+
+/* "Edit Page"下拉菜单样式  */
+#mysakai_edit_page .add_more_menu ul { background: #2B292A; border: none; }
+#mysakai_edit_page .add_more_menu ul li.more_option{ background: #093B52; border-left: 1px solid #121212; border-right: 1px solid #121212; border-top: 1px solid #121212; border-bottom: none;}
+#mysakai_edit_page .add_more_menu ul li.more_option.option_last{ background: #093B52; border: 1px solid #121212; border-bottom: 1px solid #121212; }
+
+/* 输入框样式 */
+#entity_container input[type="text"] {background: #121212; color: #ffffff; border:1px solid #666666 !important; }
+//TODO 设置entity_profile_status的对齐方式为底部对齐
+#entity_profile_status_input {}
+
+/* 3d按钮样式 */
+.s3d-button { background: url("/dev/_skins/advanced/_images/3d_button.png") no-repeat scroll right -35px transparent; }
+.s3d-button:hover, .s3d-button-hover { background-position: right -115px; }
+.s3d-button .s3d-button-inner { background: url("/dev/_skins/advanced/_images/3d_button.png") no-repeat scroll left 5px transparent; padding-top: 5px; height: 36px; }
+.s3d-button:hover .s3d-button-inner, .s3d-button-hover .s3d-button-inner { background-position: left -75px; }
+
+/* 搜索按钮样式 */
+#general_search_container .fl-force-right{
+    background: url("/dev/_skins/advanced/_images/general_search_bg.png") no-repeat right top;
+}
+#general_search_input {
+    margin: 10px 0px 0 10px !important;
+}
+
+
+
+a {color: #ffffff; }
+html {color: #d0cbcb;}
