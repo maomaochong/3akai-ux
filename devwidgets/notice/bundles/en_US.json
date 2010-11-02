@@ -1,0 +1,8 @@
+{
+    "name": "notice",
+    "description": "notice",
+    "MORE": "More",
+    "ERROR":"Data Error!", 
+    "EMPTY":"There are no notice available for you", 
+    "AUTHOR": "author"
+}

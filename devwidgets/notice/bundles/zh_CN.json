@@ -1,0 +1,8 @@
+{
+    "name": "News",
+    "description": "News",
+    "MORE": "查看全部通知",
+    "ERROR":"数据连接失败！",
+    "EMPTY":"没有可读通知", 
+    "AUTHOR": "作者"
+}

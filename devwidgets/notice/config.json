@@ -1,0 +1,13 @@
+{
+    "description":"Notice",
+    "name":"Notice",
+    "id":"notice",
+    "i18n": {
+        "default": "/devwidgets/notice/bundles/default.json",
+        "en_US": "/devwidgets/notice/bundles/en_US.json",
+        "zh_CN": "/devwidgets/notice/bundles/zh_CN.json"
+    },
+    "personalportal":true,
+    "groupsdashboard":true,
+    "url":"/devwidgets/notice/notice.html"
+}
