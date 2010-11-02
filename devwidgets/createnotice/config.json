@@ -1,0 +1,11 @@
+{
+    "description":"Create Notice",
+    "name":"Create Notice",
+    "id":"createnotice",
+    "i18n": {
+        "default": "/devwidgets/createnotice/bundles/default.json",
+        "en_US": "/devwidgets/createnotice/bundles/en_US.json",
+        "zh_CN": "/devwidgets/createnotice/bundles/zh_CN.json",
+    },
+    "url":"/devwidgets/createnotice/createnotice.html"
+}
