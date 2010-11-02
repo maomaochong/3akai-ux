@@ -1,0 +1,12 @@
+.notepaper_widget .fl-widget-content {padding: 10px 20px;}
+
+.widget_title {
+    background: url("/devwidgets/notepaper/img/notepaper_icon.png") no-repeat scroll 16px 16px transparent;
+}
+
+textarea {
+    width: 100%;
+    height: 66px;
+    border: 2px solid white;
+    background: #ffffcc;
+}
