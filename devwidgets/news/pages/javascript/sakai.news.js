@@ -139,6 +139,7 @@ sakai.news = function(){
                   newsall = data;
                   messagesForTypeCat = data.newsList.length;
                   showPage(currentPage);
+                  //alert(data);
                   // showPage(1);
                   $("#news_no_news_msg").hide();
                   
@@ -195,7 +196,7 @@ sakai.news = function(){
             type: "GET",
             data:{
                 "action":"get",
-                "id":newsid,
+                "id":newsid
             },
             success: function(data) {
                 var news = data.news;
@@ -223,7 +224,7 @@ sakai.news = function(){
             url: "/system/news",
             data: {
                 "action":"get",
-                "id":id,
+                "id":id
             },
             type: "GET",
             success: function(data){
@@ -252,7 +253,7 @@ sakai.news = function(){
               "id":id,
               "title":title,
               "content":content,
-              "pictureURI":pictureURI,
+              "pictureURI":pictureURI
             },
             type: "POST",
             success: function(data){
@@ -267,7 +268,7 @@ sakai.news = function(){
             },
             error: function(data){
                 alert("saveEditNews error");
-            },
+            }
         });
     };
     
@@ -278,7 +279,7 @@ sakai.news = function(){
                 "action":"add",
                 "title":title,
                 "content":content,
-                "pictureURI":pictureURI,
+                "pictureURI":pictureURI
             },
             type: "POST",
             success: function(data){
@@ -291,7 +292,7 @@ sakai.news = function(){
             },
             error: function(data){
                 alert("saveNewNews error");
-            },
+            }
         });
     };
 
